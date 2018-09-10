@@ -1,30 +1,32 @@
 <div class="mdl-grid portfolio-max-width">
-  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-      <div class="mdl-card__media">
-          <img class="article-image" src="assets/images/case-studies.png" border="0" alt="">
-      </div>
-      <div class="mdl-card__title">
-          <h2 class="mdl-card__title-text">Case Studies</h2>
-      </div>
-      <div class="mdl-card__supporting-text">
-          Click through here to learn more about previous projects that have been carried out by CHUNKYDIGITS developers. 
-      </div>
-      <div class="mdl-card__actions mdl-card--border">
-          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="case-studies">Read more</a>
-      </div>
-  </div>
-  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-    <div class="mdl-card__media">
-        <img class="article-image" src="assets/images/about.png" border="0" alt="">
-    </div>
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">About</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        Click to learn more about what we do and what we are about and how we can help 
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="about">Read more</a>
-    </div>
-</div>
+  <card class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card" 
+        [moreLink]="'case-studies'" 
+        [moreLinkCaption]="'Read more'" 
+        [title]="'Case Studies'" 
+        [image]="'assets/images/case-studies.png'">Click through here to learn more about previous projects that have been carried out by CHUNKYDIGITS developers. </card>
+  <card class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card" 
+        [moreLink]="'about'" 
+        [moreLinkCaption]="'About'" 
+        [title]="'About'" 
+        [image]="'assets/images/about.png'">Click to learn more about what we do and what we are about and how we can help</card>
+  <card class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card" 
+        [moreLink]="'documents'" 
+        [moreLinkCaption]="'Go To Documents'" 
+        [title]="'Documents'" 
+        [image]="'assets/images/documents.png'">We have a comprehensive range of documents that help with development practices and processes</card>
+  <card class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card" 
+        [moreLink]="'applications'" 
+        [moreLinkCaption]="'See Apps'" 
+        [title]="'Simple Apps'" 
+        [image]="'assets/images/apps.png'">As a developers we like to play with code, so here are a few single page code capers</card>
+  <card class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card" 
+        [moreLink]="'contact'" 
+        [moreLinkCaption]="'Contact Us'" 
+        [title]="'Contact'" 
+        [image]="'assets/images/contact.png'">If you would like to know more or fancy a chat then please feel free to drop us a line</card>
+  <card class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card" 
+        [moreLink]="'blog'" 
+        [moreLinkCaption]="'Read the Blog'" 
+        [title]="'Blog'" 
+        [image]="'assets/images/blog.png'">Sometimes we talk ... a lot ... these are our developer rants and rambles</card>
 </div>
