@@ -30,14 +30,33 @@
   .is-compact .portfolio-logo-row {
     min-height: auto;
   }
-  
+
   .portfolio-logo {
-    background: url('../images/logo.png') 50% no-repeat;
-    background-color:white;
+    background: url('../images/logo-inv.png') 50% no-repeat;
+    background-color:transparent;
     height: 150px;
     margin: auto auto 10px;
   }
   
+  @media screen and (max-width: 760px) {
+    .portfolio-logo-row {
+      min-height: 60px;
+    }
+
+    .portfolio-logo {
+      background: url('../images/logo-inv.png') 50% no-repeat;
+      background-color:transparent;
+      height: 40px;
+      background-size: contain;
+      width:110px;
+      margin-top:10px;
+    }
+
+    .expendable {
+      display:none!important;
+    }
+  }
+
   .is-compact .portfolio-logo {
     height: 50px;
     width: 50px;
@@ -162,4 +181,10 @@
     background-size: cover;
   }
   
-  
+  /* overrides */
+  .mdl-navigation__link {
+    &.is-active {
+      background-color: rgba(150,150,150,0.8);
+      color: $foreColour !important;
+    }
+  }
