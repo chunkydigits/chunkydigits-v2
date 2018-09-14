@@ -10,13 +10,13 @@
       </div>
       <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
           <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-              <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }" class="mdl-navigation__link" (click)="closeDrawer()">Home</a>
-              <a class="mdl-navigation__link" routerLink="/blog" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Blog</a>
-              <a class="mdl-navigation__link" routerLink="/applications" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Applications</a>
-              <a class="mdl-navigation__link" routerLink="/case-studies" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Portfolio</a>
-              <a class="mdl-navigation__link" routerLink="/documents" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Documents</a>
-              <a class="mdl-navigation__link" routerLink="/about" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">About</a>
-              <a class="mdl-navigation__link" routerLink="/contact" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Contact</a>
+                <a class="mdl-navigation__link" [ngClass]="{ 'is-active' : (selectedPage === '' || selected-page === 'home')}" (click)="goToRoute('/')" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Home</a>
+                <a class="mdl-navigation__link" [ngClass]="{ 'is-active' : selectedPage === 'blog'}" (click)="goToRoute('/blog')" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Blog</a>
+                <a class="mdl-navigation__link" [ngClass]="{ 'is-active' : selectedPage === 'applications'}" (click)="goToRoute('/applications')" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Applications</a>
+                <a class="mdl-navigation__link" [ngClass]="{ 'is-active' : selectedPage === 'case-studies'}" (click)="goToRoute('/case-studies')" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Portfolio</a>
+                <a class="mdl-navigation__link" [ngClass]="{ 'is-active' : selectedPage === 'documents'}" (click)="goToRoute('/documents')" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Documents</a>
+                <a class="mdl-navigation__link" [ngClass]="{ 'is-active' : selectedPage === 'about'}" (click)="goToRoute('/about')" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">About</a>
+                <a class="mdl-navigation__link" [ngClass]="{ 'is-active' : selectedPage === 'contact'}" (click)="goToRoute('/contact')" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }">Contact</a>
           </nav>
       </div>
   </header>
