@@ -55,6 +55,13 @@
     .expendable {
       display:none!important;
     }
+
+    .mdl-navigation__link {
+      &.is-active {
+        background-color: rgba(150,150,150,0.8);
+        color: $foreColour !important;
+      }
+    }
   }
 
   .is-compact .portfolio-logo {
@@ -182,9 +189,4 @@
   }
   
   /* overrides */
-  .mdl-navigation__link {
-    &.is-active {
-      background-color: rgba(150,150,150,0.8);
-      color: $foreColour !important;
-    }
-  }
+  
