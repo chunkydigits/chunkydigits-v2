@@ -1,4 +1,3 @@
 export const environment = {
-  production: true, 
-  enableRouterTracking: false
+  production: true
 };

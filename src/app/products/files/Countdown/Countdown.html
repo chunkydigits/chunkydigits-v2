@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CHUNKYDIGITS</title>
+    <link rel="shortcut icon" href="Images/Site/favicon.ico" />
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+    <script src="scripts/countdown.js"></script>
+    <style>
+        body
+        {
+            background-color: #0072aa;
+        }
+        
+        p
+        {
+            font-family: eurostile;
+            font-size: xx-large;
+            color: #ffffff; 
+            width: 300px;
+        }
+        
+        #container
+        {
+            background: url("Images/Site/top-menu-background.jpg") repeat scroll 0 0 transparent;
+            display: inline-block;
+            height: 80px;
+            margin-top: 0px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .logo-img
+        {
+            background-color: #ffffff;
+            height: 140px;
+            margin-top: -30px;
+        }
+        
+        /* provides shadow under the logo container */
+        .shadow
+        {
+            -moz-box-shadow: -3px 3px 4px #555555;
+            -webkit-box-shadow: -3px 3px 4px #555555;
+            box-shadow: -3px 3px 4px #555555; /* For IE 8 */
+            -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=225, Color='#555555')"; /* For IE 5.5 - 7 */
+            filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=225, Color='#555555');
+        }
+
+        .cntdwn-label
+        {
+            width:100%;
+            position:absolute;
+            left:0;
+            top:200px;
+            height:100px;
+            font-size:3em;
+            font-family:Calibri;
+            color:white;
+        }
+
+        .label
+        {
+            width:100%;
+            height:100px;
+            font-size:2em;
+            font-family:Calibri;
+            color:white;
+        }
+
+        .cntdwn-holder
+        {
+            width:20%;
+            position:relative;
+            height:300px;
+            float:left;
+        }
+
+        .cntdwn-value
+        {
+            position:absolute;
+            left:0;
+            top:0;
+            height:200px;
+            width:100%;
+            font-size:7em;
+            font-family:Calibri;
+            color:white;
+        }
+
+        .cntdwn-seperator
+        {
+            width:5%;
+            position:relative;
+            height:300px;
+            float:left;
+        }
+
+        @font-face
+        {
+            font-family: eurostile;
+            src: url("fonts/Eurosti.ttf");
+        }
+    </style>
+</head>
+<body>
+    <div align="center" style="vertical-align: middle;">
+        <div id="content-div">
+            <div class="label">CONTRACTS EXPIRE IN ... </div>
+            <div id="container" width="100%">
+                <div class="cntdwn-holder">
+                    <div id="cntdwn-days" class="cntdwn-value">CO</div>
+                    <br/>
+                    <div class="cntdwn-label">DAYS</div>
+                </div>
+                <div class="cntdwn-seperator">
+                    <div class="cntdwn-value">:</div>
+                    <br/>
+                    <div class="cntdwn-label"></div>
+                </div>
+                <div class="cntdwn-holder">
+                    <div id="cntdwn-hours" class="cntdwn-value">NT</div>
+                    <br/>
+                    <div class="cntdwn-label">HOURS</div>
+                </div>
+                <div class="cntdwn-seperator">
+                    <div class="cntdwn-value">:</div>
+                    <br/>
+                    <div class="cntdwn-label"></div>
+                </div>
+                <div class="cntdwn-holder">
+                    <div id="cntdwn-mins" class="cntdwn-value">RA</div>
+                    <br/>
+                    <div class="cntdwn-label">MINUTES</div>
+                </div>
+                <div class="cntdwn-seperator">
+                    <div class="cntdwn-value">:</div>
+                    <br/>
+                    <div class="cntdwn-label"></div>
+                </div>
+                <div class="cntdwn-holder">
+                    <div id="cntdwn-secs" class="cntdwn-value">CT</div>
+                    <br/>
+                    <div class="cntdwn-label">SECONDS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var content = $("#content-div");
+            var topHeight = $(window).height() / 2 - 200;
+            var topHeightString = topHeight + "px";
+            content.css({ "margin-top": topHeightString });
+        });
+
+           
+        
+        TargetDate = "28/03/2013 15:00";
+        CountActive = true;
+        CountStepper = -1;
+        LeadingZero = true;
+        FinishMessage = "Contract expires ...";        
+    </script>
+</body>
+    
+</html>

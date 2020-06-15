@@ -1,41 +1,59 @@
+<div class="container" style="padding-top:0.8rem;">
+    <div class="header">
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
-      <div class="mdl-layout__header-row portfolio-logo-row">
-          <span class="mdl-layout__title">
-              <div class="portfolio-logo"></div>
-              <span class="mdl-layout__title">Welcome to {{ title }}!</span>
-          </span>
-      </div>
-      <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout  --large-screen-only">
-          <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-              <a class="mdl-navigation__link is-active" href="index.html">Portfolio</a>
-              <a class="mdl-navigation__link" href="blog.html">Blog</a>
-              <a class="mdl-navigation__link" href="about.html">About</a>
-              <a class="mdl-navigation__link" href="contact.html">Contact</a>
-          </nav>
-      </div>
-  </header>
-  <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-      <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-          <a class="mdl-navigation__link is-active" href="index.html">Portfolio</a>
-          <a class="mdl-navigation__link" href="blog.html">Blog</a>
-          <a class="mdl-navigation__link" href="about.html">About</a>
-          <a class="mdl-navigation__link" href="contact.html">Contact</a>
-      </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <router-outlet></router-outlet>  
-    <footer class="mdl-mini-footer">
-          <div class="mdl-mini-footer__left-section">
-              <div class="mdl-logo">Simple portfolio website</div>
-          </div>
-          <div class="mdl-mini-footer__right-section">
-              <ul class="mdl-mini-footer__link-list">
-                  <li><a href="#">Help</a></li>
-                  <li><a href="#">Privacy & Terms</a></li>
-              </ul>
-          </div>
-      </footer>
-  </main>
+        <div class="menu" (click)="showMenuRows()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="logo">
+            <img alt="{{siteContent.title}}" src="../../assets/images/logo4.png">
+        </div>
+        <div class="home">
+            <a routerLink="">
+                <img alt="home" src="../../assets/images/home.png" />
+            </a>
+        </div>
+    </div>
+    <div class="row spacer">
+    </div>
+    <div class="row" *ngIf="showMenu">
+        <!-- <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[8]"></app-tile>
+        </div> -->
+        <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[6]"></app-tile>
+        </div>
+        <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[1]"></app-tile>
+        </div>
+    </div>
+    <div class="row" *ngIf="showMenu">
+        <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[7]"></app-tile>
+        </div>
+        <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[0]"></app-tile>
+        </div>
+        <!-- <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[4]"></app-tile>
+        </div> -->
+    </div>
+    <div class="row" *ngIf="showMenu">
+        <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[5]"></app-tile>
+        </div>
+        <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[2]"></app-tile>
+        </div>
+        <!-- <div class="col-sm">
+            <app-tile [siteContent]="siteContent.content[3]"></app-tile>
+        </div> -->
+    </div>
+
+    <div class="row">
+        <div class="site-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>

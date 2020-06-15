@@ -1,0 +1,24 @@
+app-tile {
+    overflow: hidden;
+}
+
+.card-title, .card-text { 
+    width: 100%;
+    height: 3rem;
+    color: white;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.card-title {
+    padding-top:0.8rem;
+    padding-left:1.6rem;
+    font-size: 1rem;
+    background-color: #525a5e;
+    margin-top: 3px;
+    cursor: pointer;
+    
+    &.selected { 
+        border: 1px solid #8c99a0;
+    }
+}

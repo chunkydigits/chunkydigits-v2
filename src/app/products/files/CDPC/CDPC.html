@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CHUNKYDIGITS</title>
+    <link rel="shortcut icon" href="Images/Site/favicon.ico" />
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+    <script src="scripts/countdown.js"></script>
+    <style>
+        body
+        {
+            background-color: #0072aa;
+        }
+
+        #control-panel
+        {
+            text-align:center;
+            font-family:Calibri;
+            color:white;
+            border-bottom: 1px solid white;
+            margin-bottom: 20px;
+            padding-bottom:5px;
+        }
+
+        #content-div
+        {
+            position:relative;
+            width:100%;
+        }
+
+        p
+        {
+            font-family: eurostile;
+            font-size: xx-large;
+            color: #ffffff; 
+            width: 300px;
+        }
+        
+
+        #money-holder
+        {
+            width:420px;
+            margin:auto;
+        }
+        
+        .logo-img
+        {
+            background-color: #ffffff;
+            height: 140px;
+            margin-top: -30px;
+        }
+        
+        /* provides shadow under the logo container */
+        .shadow
+        {
+            -moz-box-shadow: -3px 3px 4px #555555;
+            -webkit-box-shadow: -3px 3px 4px #555555;
+            box-shadow: -3px 3px 4px #555555; /* For IE 8 */
+            -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=225, Color='#555555')"; /* For IE 5.5 - 7 */
+            filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=225, Color='#555555');
+        }
+
+        #cntdwn-container
+        {
+            width:400px;
+            margin:auto;
+        }   
+
+        .cntdwn-label
+        {
+            width:100%;
+            position:absolute;
+            left:0;
+            top:115px;
+            font-size:3em;
+            font-family:Calibri;
+            color:white;
+        }
+
+        .label
+        {
+            width:100%;
+            font-size:2em;
+            font-family:Calibri;
+            color:white;
+            display:inline-block;
+        }
+
+        .cntdwn-holder
+        {
+            width:170px;
+            position:relative;
+            height:180px;
+            float:left;
+        }
+
+        .cntdwn-value
+        {
+            display:inline-block;
+            position:absolute;
+            left:0;
+            top:0;
+            height:150px;
+            width:100%;
+            font-size:7em;
+            font-family:Calibri;
+            color:white;
+        }
+
+        .cntdwn-seperator
+        {
+            width:40px;
+            position:relative;
+            height:150px;
+            float:left;
+        }
+
+        .cntdwn
+        {
+            text-align:center;
+        }
+
+        .cntdwn-step
+        {
+            width:30%;
+            display:inline-block;
+            margin-bottom:10px;
+            margin-top:10px;
+        }
+
+        @font-face
+        {
+            font-family: eurostile;
+            src: url("fonts/Eurosti.ttf");
+        }
+    </style>
+</head>
+<body>
+    <div id="control-panel">
+        <strong>Enter the amounts and click go ... then come back and press stop. It's as simple as that!</strong><br />
+        <div class="cntdwn-step">
+            Permanent<input type="radio" name="typeRadio" value="permanent" checked="checked" /><br />
+            Contract<input type="radio" name="typeRadio"  value="contract" /><br />
+        </div>
+
+        <div class="cntdwn-step">
+            <label id="workTypeRateLabel">Salary</label><br />£ <input type="text" id="amount" value="25000"/><br />
+        </div>
+        <div class="cntdwn-step">
+            Hours per day you are (supposed) to work<br /><input type="text" id="hours" value="7.5"/><br />
+        </div><br />
+        <input type="button" id="startbutton" title="Start" value="START" onclick="javascript: StartTimer();"/>
+    </div>
+    <div class="cntdwn">
+        <div id="content-div">
+            <div class="label">YOU HAVE SPENT ...  </div>
+            <div id="cntdwn-container">
+                <div class="cntdwn-holder">
+                    <div id="cntdwn-mins" class="cntdwn-value">00</div>
+                    <br/>
+                    <div class="cntdwn-label">MINUTES</div>
+                </div>
+                <div class="cntdwn-seperator">
+                    <div class="cntdwn-value">:</div>
+                    <br/>
+                    <div class="cntdwn-label"></div>
+                </div>
+                <div class="cntdwn-holder">
+                    <div id="cntdwn-secs" class="cntdwn-value">00</div>
+                    <br/>
+                    <div class="cntdwn-label">SECONDS</div>
+                </div>
+            </div>
+            <div class="label">... AND COST THE COMPANY ...  </div>
+            <div id="money-holder">
+                <div class="cntdwn-seperator">
+                    <div class="cntdwn-value">£</div>
+                </div>
+                <div class="cntdwn-holder">
+                    <div id="money-pounds" class="cntdwn-value">0</div>
+                </div>
+                <div class="cntdwn-seperator">
+                    <div class="cntdwn-value">.</div>
+                </div>
+                <div class="cntdwn-holder">
+                    <div id="money-pence" class="cntdwn-value">00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        CountStepper = 1;
+        worktype = "permanent";
+
+        $("input:radio[name='typeRadio']").click(function () {
+            worktype = $(this).attr("value").toString();
+            var rateLabel = $("#workTypeRateLabel");
+            switch (worktype) {
+                case "permanent": rateLabel.html("Salary");
+                    break;  
+                case "contract":rateLabel.html("Daily Rate");
+                    break;
+            }
+        });
+
+
+    </script>
+</body>
+    
+</html>
